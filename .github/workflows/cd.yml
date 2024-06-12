@@ -53,5 +53,5 @@ jobs:
           name: app
           path: ./app
       - name: CDK Deploy
-        working-directory: deploy
+        working-directory: deploy-scripts
         run: cdk deploy
