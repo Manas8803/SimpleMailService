@@ -24,6 +24,7 @@ jobs:
           path: ./app/bootstrap
 
   deploy:
+    environment: SimpleMailService
     needs: build
     runs-on: ubuntu-latest
     env:
@@ -38,7 +39,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
+          aws-region: ${{ secrets.CDK_DEFAULT_ACCOUNT }}
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
